@@ -1,0 +1,4498 @@
+{
+  "Account_Details": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": "=Date()",
+        "exposed": true
+      },
+      {
+        "access_name": "Acc_Number",
+        "py_name": "Acc_Number",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "VType",
+        "py_name": "VType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Debit",
+        "py_name": "Debit",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Credit",
+        "py_name": "Credit",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Balance",
+        "py_name": "Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remarks",
+        "py_name": "Remarks",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "CASACAccount_Details",
+        "tables": [
+          "CASAC",
+          "Account_Details"
+        ],
+        "fields": [
+          "Acc_Number",
+          "1",
+          "Acc_Number"
+        ]
+      },
+      {
+        "name": "PInvAccount_Details",
+        "tables": [
+          "PInv",
+          "Account_Details"
+        ],
+        "fields": [
+          "ID",
+          "Acc_Number"
+        ]
+      }
+    ]
+  },
+  "BatchInfo": {
+    "pk_fields": [
+      "Batch_Name",
+      "Prod_Code",
+      "Expiry_Date"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Batch_Name",
+        "py_name": "Batch_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": true,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Prod_Code",
+        "py_name": "Prod_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Batch_Stock",
+        "py_name": "Batch_Stock",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Expiry_Date",
+        "py_name": "Expiry_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": true,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PRate",
+        "py_name": "PRate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "StockBatchInfo",
+        "tables": [
+          "Stock",
+          "BatchInfo"
+        ],
+        "fields": [
+          "Pro_Code",
+          "1",
+          "Prod_Code"
+        ]
+      }
+    ]
+  },
+  "CASAC": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Acc_Number",
+        "py_name": "Acc_Number",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Acc_Title",
+        "py_name": "Acc_Title",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Acc_Type",
+        "py_name": "Acc_Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Location",
+        "py_name": "Location",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Balance",
+        "py_name": "Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "CASACAccount_Details",
+        "tables": [
+          "CASAC",
+          "Account_Details"
+        ],
+        "fields": [
+          "Acc_Number",
+          "1",
+          "Acc_Number"
+        ]
+      }
+    ]
+  },
+  "Company": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Company_Name",
+        "py_name": "Company_Name",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Com_Adress",
+        "py_name": "Com_Adress",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Ph_Number",
+        "py_name": "Ph_Number",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "CounterRec": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rec_Date",
+        "py_name": "Rec_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs5",
+        "py_name": "Rs5",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs10",
+        "py_name": "Rs10",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs20",
+        "py_name": "Rs20",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs50",
+        "py_name": "Rs50",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs100",
+        "py_name": "Rs100",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs500",
+        "py_name": "Rs500",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs1000",
+        "py_name": "Rs1000",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Rs5000",
+        "py_name": "Rs5000",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Computer_Cash",
+        "py_name": "Computer_Cash",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Counter_Cash",
+        "py_name": "Counter_Cash",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Difrence",
+        "py_name": "Difrence",
+        "py_type": "float",
+        "access_type": "Double (Calculated)",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": false
+      }
+    ],
+    "relationships": []
+  },
+  "Customer": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Code",
+        "py_name": "Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Customer_Name",
+        "py_name": "Customer_Name",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Ph_No",
+        "py_name": "Ph_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Credit_Limit",
+        "py_name": "Credit_Limit",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Prev_Balance",
+        "py_name": "Prev_Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Mob_NO",
+        "py_name": "Mob_NO",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Refer_By",
+        "py_name": "Refer_By",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "City",
+        "py_name": "City",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Adress",
+        "py_name": "Adress",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "dueDate",
+        "py_name": "dueDate",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "CustomerCustomerDetails",
+        "tables": [
+          "Customer",
+          "CustomerDetails"
+        ],
+        "fields": [
+          "Code",
+          "1",
+          "Cus_Code"
+        ]
+      },
+      {
+        "name": "CustomerSInv",
+        "tables": [
+          "Customer",
+          "SInv"
+        ],
+        "fields": [
+          "Code",
+          "Customer_Code"
+        ]
+      }
+    ]
+  },
+  "CustomerDetails": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "VType",
+        "py_name": "VType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Recive_Date",
+        "py_name": "Recive_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Cus_Code",
+        "py_name": "Cus_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Cr",
+        "py_name": "Cr",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Dr",
+        "py_name": "Dr",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discount",
+        "py_name": "Discount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remarks",
+        "py_name": "Remarks",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "CustomerCustomerDetails",
+        "tables": [
+          "Customer",
+          "CustomerDetails"
+        ],
+        "fields": [
+          "Code",
+          "1",
+          "Cus_Code"
+        ]
+      }
+    ]
+  },
+  "DraftMessages": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Mob",
+        "py_name": "Mob",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Message",
+        "py_name": "Message",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Employee": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Code",
+        "py_name": "Code",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Emp_Name",
+        "py_name": "Emp_Name",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Mob",
+        "py_name": "Mob",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Father_Name",
+        "py_name": "Father_Name",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Father_Mob",
+        "py_name": "Father_Mob",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Refrance",
+        "py_name": "Refrance",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Refrance_Mob",
+        "py_name": "Refrance_Mob",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "City",
+        "py_name": "City",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "District",
+        "py_name": "District",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Adress",
+        "py_name": "Adress",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Picture",
+        "py_name": "Picture",
+        "py_type": "bytes",
+        "access_type": "OLE Object",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": false
+      },
+      {
+        "access_name": "ID_Card",
+        "py_name": "ID_Card",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Martial_Status",
+        "py_name": "Martial_Status",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Post",
+        "py_name": "Post",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Education",
+        "py_name": "Education",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Basic Pay",
+        "py_name": "Basic_Pay",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Other Allowance",
+        "py_name": "Other_Allowance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total Salary",
+        "py_name": "Total_Salary",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "IF Any Advance",
+        "py_name": "IF_Any_Advance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Exp": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Exp_Account",
+        "py_name": "Exp_Account",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Exp_Type",
+        "py_name": "Exp_Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Amount",
+        "py_name": "Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Details",
+        "py_name": "Details",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "VType",
+        "py_name": "VType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "ExpensesAccount": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "AccountName",
+        "py_name": "AccountName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Expiry": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bach_No",
+        "py_name": "Bach_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Expiry_Date",
+        "py_name": "Expiry_Date",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pack",
+        "py_name": "Pack",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Lose",
+        "py_name": "Lose",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Qty",
+        "py_name": "Total_Qty",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Fees": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "U_ser_N_ame",
+        "py_name": "U_ser_N_ame",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "P_ass_W_ord",
+        "py_name": "P_ass_W_ord",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "isApproved",
+        "py_name": "isApproved",
+        "py_type": "bool",
+        "access_type": "Yes/No",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "isAdmin",
+        "py_name": "isAdmin",
+        "py_type": "bool",
+        "access_type": "Yes/No",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "User_Role",
+        "py_name": "User_Role",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Disc_Limit",
+        "py_name": "Disc_Limit",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Packages": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pkg_Name",
+        "py_name": "Pkg_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "PackagesPackages_Details",
+        "tables": [
+          "Packages",
+          "Packages_Details"
+        ],
+        "fields": [
+          "1"
+        ]
+      }
+    ]
+  },
+  "Packages_Details": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pkg_ID",
+        "py_name": "Pkg_ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Quantity",
+        "py_name": "Quantity",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Price",
+        "py_name": "Pro_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "PackagesPackages_Details",
+        "tables": [
+          "Packages",
+          "Packages_Details"
+        ],
+        "fields": [
+          "ID",
+          "1",
+          "Pkg_ID"
+        ]
+      }
+    ]
+  },
+  "Party": {
+    "pk_fields": [
+      "id"
+    ],
+    "columns": [
+      {
+        "access_name": "id",
+        "py_name": "id",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Code",
+        "py_name": "Code",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Party_Name",
+        "py_name": "Party_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Ph_No",
+        "py_name": "Ph_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Credit_Limit",
+        "py_name": "Credit_Limit",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Due_Balance",
+        "py_name": "Due_Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Mob_No",
+        "py_name": "Mob_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Owner_Name",
+        "py_name": "Owner_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "City",
+        "py_name": "City",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Adress",
+        "py_name": "Adress",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "dueDate",
+        "py_name": "dueDate",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "PartyDetails": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Payment_Date",
+        "py_name": "Payment_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Party_Code",
+        "py_name": "Party_Code",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "CR",
+        "py_name": "CR",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DR",
+        "py_name": "DR",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discount",
+        "py_name": "Discount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Balance",
+        "py_name": "Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remarks",
+        "py_name": "Remarks",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "VType",
+        "py_name": "VType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "PatientName": {
+    "pk_fields": [
+      "Sr"
+    ],
+    "columns": [
+      {
+        "access_name": "Sr",
+        "py_name": "Sr",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Patient_Name",
+        "py_name": "Patient_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "PendingPurchase": {
+    "pk_fields": [
+      "Pro_Code"
+    ],
+    "columns": [
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Product_Name",
+        "py_name": "Product_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Quantity",
+        "py_name": "Quantity",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Lose",
+        "py_name": "Lose",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bouns",
+        "py_name": "Bouns",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PRate",
+        "py_name": "PRate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "TaxRS",
+        "py_name": "TaxRS",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "STax",
+        "py_name": "STax",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Unit_Price",
+        "py_name": "Unit_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Rate",
+        "py_name": "Sale_Rate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Price",
+        "py_name": "Total_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BoxNo",
+        "py_name": "BoxNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Batch_No",
+        "py_name": "Batch_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Expiry_Date",
+        "py_name": "Expiry_Date",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "UserLogin",
+        "py_name": "UserLogin",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "PInv": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Bill",
+        "py_name": "Total_Bill",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Disc",
+        "py_name": "Disc",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "TaxCash",
+        "py_name": "TaxCash",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Net_Amount",
+        "py_name": "Net_Amount",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Amount",
+        "py_name": "Paid_Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Due_Balance",
+        "py_name": "Due_Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Type",
+        "py_name": "Paid_Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Party_Name",
+        "py_name": "Party_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remarks",
+        "py_name": "Remarks",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Status",
+        "py_name": "Status",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "PInvAccount_Details",
+        "tables": [
+          "PInv",
+          "Account_Details"
+        ],
+        "fields": [
+          "ID",
+          "Acc_Number"
+        ]
+      },
+      {
+        "name": "PInvPRec",
+        "tables": [
+          "PInv",
+          "PRec"
+        ],
+        "fields": [
+          "1"
+        ]
+      }
+    ]
+  },
+  "PORTNO": {
+    "pk_fields": [
+      "PORTNO"
+    ],
+    "columns": [
+      {
+        "access_name": "PORTNO",
+        "py_name": "PORTNO",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "PRec": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "C_ID",
+        "py_name": "C_ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pack",
+        "py_name": "Pack",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Lose",
+        "py_name": "Lose",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bouns",
+        "py_name": "Bouns",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PRate",
+        "py_name": "PRate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "AdvTax",
+        "py_name": "AdvTax",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "STax",
+        "py_name": "STax",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pack_Price",
+        "py_name": "Pack_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Price",
+        "py_name": "Total_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Rate",
+        "py_name": "Sale_Rate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BoxNo",
+        "py_name": "BoxNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bach_No",
+        "py_name": "Bach_No",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Expiry_Date",
+        "py_name": "Expiry_Date",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "PInvPRec",
+        "tables": [
+          "PInv",
+          "PRec"
+        ],
+        "fields": [
+          "1"
+        ]
+      }
+    ]
+  },
+  "Pricing": {
+    "pk_fields": [
+      "Pro_Code"
+    ],
+    "columns": [
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Purchase_Price",
+        "py_name": "Purchase_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Price",
+        "py_name": "Sale_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "StockPricing",
+        "tables": [
+          "Stock",
+          "Pricing"
+        ],
+        "fields": [
+          "Pro_Code",
+          "1",
+          "1",
+          "Pro_Code"
+        ]
+      }
+    ]
+  },
+  "Pro": {
+    "pk_fields": [
+      "Pro_Code"
+    ],
+    "columns": [
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Name",
+        "py_name": "Pro_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Type",
+        "py_name": "Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Re_Order",
+        "py_name": "Re_Order",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Packing",
+        "py_name": "Packing",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Company",
+        "py_name": "Company",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale",
+        "py_name": "Sale",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "WholeSalePrice",
+        "py_name": "WholeSalePrice",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BoxNo",
+        "py_name": "BoxNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Purchase",
+        "py_name": "Purchase",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Purchase2",
+        "py_name": "Purchase2",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Narcotic",
+        "py_name": "Narcotic",
+        "py_type": "bool",
+        "access_type": "Yes/No",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Barcode",
+        "py_name": "Barcode",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Services": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Reception_ID",
+        "py_name": "Reception_ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Patient_Name",
+        "py_name": "Patient_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "F_Name",
+        "py_name": "F_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Gender",
+        "py_name": "Gender",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Age",
+        "py_name": "Age",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BP_Puls",
+        "py_name": "BP_Puls",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 50,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Temp",
+        "py_name": "Temp",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Weight",
+        "py_name": "Weight",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Amount",
+        "py_name": "Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remaning",
+        "py_name": "Remaning",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Type",
+        "py_name": "Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Dr_Name",
+        "py_name": "Dr_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "ServicesINV": {
+    "pk_fields": [
+      "InvNo"
+    ],
+    "columns": [
+      {
+        "access_name": "InvNo",
+        "py_name": "InvNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bill_Time",
+        "py_name": "Bill_Time",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Day_BillNo",
+        "py_name": "Day_BillNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Prev_Balance",
+        "py_name": "Prev_Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Bill",
+        "py_name": "Total_Bill",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Service_Charges",
+        "py_name": "Service_Charges",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discount",
+        "py_name": "Discount",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Net_Amount",
+        "py_name": "Net_Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Amount",
+        "py_name": "Paid_Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remaning",
+        "py_name": "Remaning",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Type",
+        "py_name": "Paid_Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Customer_Code",
+        "py_name": "Customer_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "UserLogin",
+        "py_name": "UserLogin",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "ServicesREC": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Qty",
+        "py_name": "Qty",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Price",
+        "py_name": "Sale_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Price",
+        "py_name": "Total_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "SInv": {
+    "pk_fields": [
+      "InvNo"
+    ],
+    "columns": [
+      {
+        "access_name": "InvNo",
+        "py_name": "InvNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Date",
+        "py_name": "Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Bill_Time",
+        "py_name": "Bill_Time",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Day_BillNo",
+        "py_name": "Day_BillNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Prev_Balance",
+        "py_name": "Prev_Balance",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Bill",
+        "py_name": "Total_Bill",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Service_Charges",
+        "py_name": "Service_Charges",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discount",
+        "py_name": "Discount",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Net_Amount",
+        "py_name": "Net_Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Amount",
+        "py_name": "Paid_Amount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remaning",
+        "py_name": "Remaning",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Paid_Type",
+        "py_name": "Paid_Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "SaleType",
+        "py_name": "SaleType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Customer_Code",
+        "py_name": "Customer_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "UserLogin",
+        "py_name": "UserLogin",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Remarks",
+        "py_name": "Remarks",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "CustomerSInv",
+        "tables": [
+          "Customer",
+          "SInv"
+        ],
+        "fields": [
+          "Code",
+          "Customer_Code"
+        ]
+      }
+    ]
+  },
+  "SRec": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Qty",
+        "py_name": "Qty",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Purchase_Rate",
+        "py_name": "Purchase_Rate",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Price",
+        "py_name": "Sale_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discpr",
+        "py_name": "Discpr",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Discount",
+        "py_name": "Discount",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Price",
+        "py_name": "Total_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BatchNo",
+        "py_name": "BatchNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "EX_Date",
+        "py_name": "EX_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Stock": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": true,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pack",
+        "py_name": "Pack",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Lose",
+        "py_name": "Lose",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Total_Qty",
+        "py_name": "Total_Qty",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Supplier",
+        "py_name": "Supplier",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": [
+      {
+        "name": "StockBatchInfo",
+        "tables": [
+          "Stock",
+          "BatchInfo"
+        ],
+        "fields": [
+          "1"
+        ]
+      },
+      {
+        "name": "StockPricing",
+        "tables": [
+          "Stock",
+          "Pricing"
+        ],
+        "fields": [
+          "Pro_Code",
+          "1",
+          "1",
+          "Pro_Code"
+        ]
+      }
+    ]
+  },
+  "stockInOutDetail": {
+    "pk_fields": [
+      "Id"
+    ],
+    "columns": [
+      {
+        "access_name": "Id",
+        "py_name": "Id",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "invoice_date",
+        "py_name": "invoice_date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Invoice_No",
+        "py_name": "Invoice_No",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Pro_Code",
+        "py_name": "Pro_Code",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "In",
+        "py_name": "In",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Out",
+        "py_name": "Out",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Current_Stock",
+        "py_name": "Current_Stock",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Purchase_Price",
+        "py_name": "Purchase_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Sale_Price",
+        "py_name": "Sale_Price",
+        "py_type": "float",
+        "access_type": "Single",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Party",
+        "py_name": "Party",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Details",
+        "py_name": "Details",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BatchNo",
+        "py_name": "BatchNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "E_Date",
+        "py_name": "E_Date",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DrName",
+        "py_name": "DrName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PtName",
+        "py_name": "PtName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Store": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Store",
+        "py_name": "Store",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Location",
+        "py_name": "Location",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "TblDepartment": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Department",
+        "py_name": "Department",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "TblDoctor": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DrName",
+        "py_name": "DrName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Department",
+        "py_name": "Department",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DegreeName",
+        "py_name": "DegreeName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Mobile",
+        "py_name": "Mobile",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "OPDClinic",
+        "py_name": "OPDClinic",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "ConsultancyFee",
+        "py_name": "ConsultancyFee",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "ClinicTimeFrom",
+        "py_name": "ClinicTimeFrom",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "ClinicTimeto",
+        "py_name": "ClinicTimeto",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "ConsultationTime",
+        "py_name": "ConsultationTime",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "TblOPD": {
+    "pk_fields": [
+      "SlipNo"
+    ],
+    "columns": [
+      {
+        "access_name": "SlipNo",
+        "py_name": "SlipNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PtTokenNo",
+        "py_name": "PtTokenNo",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PtDate",
+        "py_name": "PtDate",
+        "py_type": "datetime",
+        "access_type": "Date With Time",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "VistTime",
+        "py_name": "VistTime",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "OutTime",
+        "py_name": "OutTime",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "MRID",
+        "py_name": "MRID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "MRNo",
+        "py_name": "MRNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PatientName",
+        "py_name": "PatientName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "F_H_Name",
+        "py_name": "F_H_Name",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Age",
+        "py_name": "Age",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Gender",
+        "py_name": "Gender",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Address",
+        "py_name": "Address",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "City",
+        "py_name": "City",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "PhoneNo",
+        "py_name": "PhoneNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "CNICNo",
+        "py_name": "CNICNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "CompanyName",
+        "py_name": "CompanyName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "CopmanyCardNo",
+        "py_name": "CopmanyCardNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "BP",
+        "py_name": "BP",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Puls",
+        "py_name": "Puls",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Temp",
+        "py_name": "Temp",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Weight",
+        "py_name": "Weight",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DoctorName",
+        "py_name": "DoctorName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Department",
+        "py_name": "Department",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "RoomNo",
+        "py_name": "RoomNo",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Fee",
+        "py_name": "Fee",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Description",
+        "py_name": "Description",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "MiscCharges",
+        "py_name": "MiscCharges",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DiscPr",
+        "py_name": "DiscPr",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "DiscRS",
+        "py_name": "DiscRS",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "NetAmount",
+        "py_name": "NetAmount",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "SlipType",
+        "py_name": "SlipType",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Status",
+        "py_name": "Status",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Visit",
+        "py_name": "Visit",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "UserLogin",
+        "py_name": "UserLogin",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Disposal",
+        "py_name": "Disposal",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "tblSelectedProds": {
+    "pk_fields": [
+      "proName"
+    ],
+    "columns": [
+      {
+        "access_name": "proName",
+        "py_name": "proName",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": true,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "TblServices": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Services",
+        "py_name": "Services",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Charges",
+        "py_name": "Charges",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Type",
+        "py_name": "Type",
+        "py_type": "str",
+        "access_type": "Short Text",
+        "max_length": 255,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  },
+  "Terms": {
+    "pk_fields": [
+      "ID"
+    ],
+    "columns": [
+      {
+        "access_name": "ID",
+        "py_name": "ID",
+        "py_type": "int",
+        "access_type": "Long Integer",
+        "max_length": null,
+        "required": false,
+        "is_pk": true,
+        "is_auto": true,
+        "default": null,
+        "exposed": true
+      },
+      {
+        "access_name": "Term_Condition",
+        "py_name": "Term_Condition",
+        "py_type": "str",
+        "access_type": "Long Text",
+        "max_length": null,
+        "required": false,
+        "is_pk": false,
+        "is_auto": false,
+        "default": null,
+        "exposed": true
+      }
+    ],
+    "relationships": []
+  }
+}
